@@ -1,16 +1,16 @@
+<!-- login.php -->
 <!DOCTYPE html>
 <html>
 <head>
     <title>Login - Warung ABC</title>
 </head>
 <body>
-
     <h1>Login Aplikasi Kasir Warung ABC</h1>
 
     <?php
     session_start();
     if (isset($_SESSION['pesan_error'])) {
-        echo "<p style='color:red'>" . $_SESSION['pesan_error'] . "</p>";
+        echo '<p>' . $_SESSION['pesan_error'] . '</p>';
         unset($_SESSION['pesan_error']);
     }
     ?>
@@ -34,6 +34,5 @@
             </tr>
         </table>
     </form>
-
 </body>
 </html>
