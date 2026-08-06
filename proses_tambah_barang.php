@@ -2,7 +2,7 @@
 // proses_tambah_barang.php
 session_start();
 include 'includes/cek_session.php';
-inclccude 'config/koneksi.php';
+include 'config/koneksi.php';
 
 $kode   = mysqli_real_escape_string($koneksi, $_POST['kode_barang']);
 $nama   = mysqli_real_escape_string($koneksi, $_POST['nama_barang']);

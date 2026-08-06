@@ -17,11 +17,11 @@ $tanggal = date('Y-m-d H:i:s');
 $total = 0;
 foreach ($_SESSION['keranjang'] as $item) {
     $total += $item['subtotal'];
-}
 
 $sql = "INSERT INTO tbl_transaksi (no_transaksi, tanggal, id_kasir, id_pelanggan, total_bayar)";
 $sql .= " VALUES ('$no_transaksi', '$tanggal', '$id_kasir', NULL, '$total')";
 mysqli_query($koneksi, $sql);
+}
 
 $id_transaksi = mysqli_insert_id($koneksi);
 
