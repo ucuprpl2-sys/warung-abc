@@ -14,6 +14,9 @@ $total = 0;
 foreach ($_SESSION['keranjang'] as $item) {
     $total += $item['subtotal'];
 }
+$sql_pelanggan = "SELECT * FROM tbl_pelanggan ORDER BY nama_pelanggan ASC";
+$hasil_pelanggan = mysqli_query($koneksi, $sql_pelanggan);
+
 ?>
 
 <!DOCTYPE html>
@@ -314,6 +317,14 @@ Rp <?php echo number_format($total,0,',','.'); ?>
 
 
 <form action="proses_simpan_transaksi.php" method="POST">
+    pelanggan:
+    <select name="id_pelanggan">
+        <option value=">--Pelanggan Umum--</option>
+        <?php while ($p = mysqli_fetch_assoc($hasil_pelanggan)) { ?>
+        <option value="<?php echo  $p['id_pelanggan']; ?>">
+            <?php echo $p ['nama_pelanggan']; ?></option>
+            <?php } ?>
+</select>
 
 <input class="simpan" type="submit" value="💾 Simpan Transaksi">
 
